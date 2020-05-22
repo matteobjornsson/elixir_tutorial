@@ -176,7 +176,13 @@ defmodule M do
 
       display_list(words)
 
-      IO.puts display_list(List.delete)
+      # some functions for lists
+      list5 = List.delete_at(words, 1)
+      IO.puts List.first(words)
+      IO.puts List.last(words)
+
+      # list of key-value tuples
+      my_stats = [name: "Derek", height: 6.25]
 
   end
 
@@ -187,6 +193,44 @@ defmodule M do
   end
   # recursion end case
   def display_list([]), do: nil
+
+
+  def map_demo do
+      capitals = %{"Alabama" => "Montgomery",
+        "Alaska" => "Juneau", "Arizona" => "Phoenix"}
+
+      IO.puts "Capital of Alaska is #{capitals["Alaska"]}"
+
+      capitals2 = %{alabama: "Montgomery", alaska: "Juneau", arizona: "Phoenix"}
+
+      IO.puts "Capital of Arizona is #{capitals2.arizona}"
+
+      # you can add key value pairs to maps using the Dict module, but as always you need to great a new variable to store it
+      capitals3 = Dict.put_new(capitals, "Arkansas", "Little Rock")
+  end
+
+  def pattern_matching do
+    [length, width] = [20, 30]
+    IO.puts "width : #{width}"
+
+    # use underscores to indicate parts you don't care about/aren't assigning
+    [_, [_, a]] = [20, [30, 40]]
+    IO.puts "Get Num : : #{a}"
+
+  end
+
+  def anonymous_fn do
+    get_sum = fn (x, y) -> x + y end
+    IO.puts "5 + 5 = #{get_sum.(5,5)}"
+
+    #shorthand version of the above, exactluy the same!! (except minus instead of plus)
+    get_less = &(&1 - &2)
+    IO.puts "7 - 6 = #{get_less.(7,6)}"
+
+    # add_sum = fn
+    #     {x, y} ->  IO.puts "end
+  end
+
 
 
 end
