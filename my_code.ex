@@ -227,8 +227,7 @@ defmodule M do
     get_less = &(&1 - &2)
     IO.puts "7 - 6 = #{get_less.(7,6)}"
 
-    # add_sum = fn
-    #     {x, y} ->  IO.puts "end
+
   end
 
 
